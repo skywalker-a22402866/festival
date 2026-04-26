@@ -6,25 +6,26 @@ def index_view(request):
     return render(request, 'festival/index.html')
 
 
-def dias_view(request, id):
-    dias = Dia.objects.all() 
+# LISTA DE DIAS
+def dias_view(request):
+    dias = Dia.objects.all()
+    return render(request, 'dias.html', {'dias': dias})
 
-    context = {'dias': dias}
 
-    return render(request, 'festival/dias.html', context)
-
+# DETALHE DE UM DIA
+def dia_detail_view(request, id):
+    dia = get_object_or_404(Dia, id=id)
+    return render(request, 'dia_detail.html', {'dia': dia})
 
 
 def concerto_view(request, id):
-    concerto = Concerto.objects.All()
+    concerto = Concerto.objects.all()
 
     context = {'concerto': concerto}
 
     return render(request, 'festival/concerto.html', context)
 
 def palcos_view(request, id):
-    palco = Palco.objects.All()
+    palco = Palco.objects.all()
 
-    context = {'Palcos': palco}
-
-    return render(request, 'festival/palco.html', context)
+    return render(request, 'festival/palco.html', {'palcos': palco})

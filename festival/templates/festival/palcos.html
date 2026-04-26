@@ -1,0 +1,17 @@
+{% extends 'festival/layout.html' %}
+
+{% block content %}
+    
+{% for palco in palcos %}
+<h3>{{palco}}</h3>
+
+    {% for concerto in palco.concertos.all %}
+        <article class="card">
+            <a href="">{{ concerto.banda.nome }} - {{ concerto.dia }}, {{ concerto.hora }}</a>
+        </article>
+    {% endfor %}
+
+{% endfor %}
+
+{% endblock %}
+    

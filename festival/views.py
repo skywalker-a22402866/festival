@@ -9,7 +9,7 @@ def index_view(request):
 # LISTA DE DIAS
 def dias_view(request):
     dias = Dia.objects.all()
-    return render(request, 'dias.html', {'dias': dias})
+    return render(request, 'festival/dias.html', {'dias': dias})
 
 
 # DETALHE DE UM DIA
@@ -26,6 +26,6 @@ def concerto_view(request, id):
     return render(request, 'festival/concerto.html', context)
 
 def palcos_view(request, id):
-    palco = Palco.objects.all()
+    palco = Palco.objects.get(id=id)
 
-    return render(request, 'festival/palco.html', {'palcos': palco})
+    return render(request, 'festival/palcos.html', {'palcos': palco})

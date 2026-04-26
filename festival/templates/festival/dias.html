@@ -4,7 +4,7 @@
 
 <h1>Dias do Festival</h1>
 
-{% for dia in dias %}
+{% for dia in concerto.all %}
     <div class="card">
         <a href="{% url 'dia' dia.id %}">
             {{ dia.nome }}

@@ -4,12 +4,18 @@
 
 <h1>Dias do Festival</h1>
 
-{% for dia in concerto.all %}
-    <div class="card">
-        <a href="{% url 'dia_detail' dia.id %}">
-            {{ dia.nome }}
-        </a>
-    </div>
-{% endfor %}
+{% for dia in dias %}
+    <h2>{{ dia.data }}</h2>
 
+    {% for concerto in dia.concertos.all %}
+        <div class="card">
+            {{ concerto.banda.nome }} —
+            {{ concerto.hora }} —
+            {{ concerto.palco.nome }}
+        </div>
+    {% empty %}
+        <p>Sem concertos neste dia</p>
+    {% endfor %}
+
+{% endfor %}
 {% endblock %}

@@ -7,11 +7,10 @@
 
     {% for concerto in palco.concertos.all %}
         <article class="card">
-            <a href="">{{ concerto.banda.nome }} - {{ concerto.dia }}, {{ concerto.hora }}</a>
+            <a href="{% url 'concerto' concerto.id %}">{{ concerto.banda.nome }} - {{ concerto.dia }}, {{ concerto.hora }}</a>
         </article>
     {% endfor %}
 
 {% endfor %}
 
 {% endblock %}
-    

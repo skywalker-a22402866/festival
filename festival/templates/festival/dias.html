@@ -5,7 +5,9 @@
 <h1>Dias do Festival</h1>
 
 {% for dia in dias %}
-    <h2>{{ dia.data }}</h2>
+    <h2>
+        {{ dia.data }}
+    </h2>
 
     {% for concerto in dia.concertos.all %}
         <div class="card">
